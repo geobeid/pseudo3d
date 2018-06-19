@@ -1,0 +1,25 @@
+-main ApplicationMain 
+--macro openfl._internal.utils.ExtraParams.include()
+-cp C:/haxe/openfl/8,2,2/src
+-D openfl=8.2.2
+--macro lime.Lib.extraParams()
+-cp C:/haxe/lime/6,4,0
+-D lime=6.4.0
+-cp C:/haxe/actuate/1,8,7
+-D actuate=1.8.7
+-cp src
+-cp C:/haxe/openfl/8,2,2/src/externs/core/flash
+-cp C:/haxe/openfl/8,2,2/src/externs/core/openfl
+-D native-trace
+-D tools=6.4.0
+-D flash-use-stage
+-D no-compilation
+-D openfl-flash
+-D fdb
+-D web
+-cp bin/flash
+-swf-lib obj/assets.swf
+-swf-version 17
+-swf bin/flash/bin/Pseudo3D.swf
+-cp bin/flash/haxe
+-debug
