@@ -14,7 +14,7 @@ class Road extends Sprite{
 	
 	public function new() {
 		super();
-		for (i in 0...10)
+		for (i in 0...30)
 		{
 			var auxSegment:Segment = new Segment();
 			auxSegment.x = posX;

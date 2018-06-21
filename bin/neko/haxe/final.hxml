@@ -1,11 +1,11 @@
 -main ApplicationMain 
 --macro openfl._internal.utils.ExtraParams.include()
--cp C:/haxe/openfl/8,2,2/src
+-cp C:/HaxeToolkit/haxe/lib/openfl/8,2,2/src
 -D openfl=8.2.2
 --macro lime.Lib.extraParams()
--cp C:/haxe/lime/6,4,0
+-cp C:/HaxeToolkit/haxe/lib/lime/6,4,0
 -D lime=6.4.0
--cp C:/haxe/actuate/1,8,7
+-cp C:/HaxeToolkit/haxe/lib/actuate/1,8,7
 -D actuate=1.8.7
 -cp src
 -D lime-openal
@@ -23,6 +23,7 @@
 -D windows
 -D desktop
 --remap flash:openfl
+-dce full
 -cp bin/neko/haxe
 -neko bin/neko/obj/ApplicationMain.n
 --macro keep("Main")

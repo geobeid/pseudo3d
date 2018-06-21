@@ -24,7 +24,7 @@ import haxe.macro.Expr;
 		
 		var config = {
 			
-			build: "123",
+			build: "2",
 			company: "Killabunnies",
 			file: "Pseudo3D",
 			fps: 60,
@@ -38,7 +38,7 @@ import haxe.macro.Expr;
 					allowHighDPI: false,
 					alwaysOnTop: false,
 					antialiasing: 0,
-					background: 0,
+					background: 3355443,
 					borderless: false,
 					colorDepth: 32,
 					depthBuffer: true,

@@ -8,7 +8,7 @@
 	<!-- output -->
 	<app main="Main" file="Pseudo3D" path="bin" />
 	
-	<window background="#000000" fps="60" />
+	<window background="#333333" fps="60" />
 	<window width="1920" height="1080" unless="mobile" />
 	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
 	
@@ -21,7 +21,12 @@
 	<icon path="assets/openfl.svg" />
 	<assets path="assets/img" rename="img" />
 	
-	<!-- optimize output
-	<haxeflag name="-dce full" /> -->
+	
+	<!-- optimize output. Let's try to make this work. -->
+	<haxeflag name="-dce full" /> <!-- dce FULL: broken until a new Actuate comes along :( -->
+	
+	<!--<haxedef name="canvas" /> <!-- canvas all the way -->
+	
+	<haxeflag name="--no-traces" unless="debug" /> <!-- No traces flag!-->
 	
 </project>
