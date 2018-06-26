@@ -30,9 +30,10 @@ class TileRoad extends Tilemap
 		
 		segmentArray = new Array<TileSegment>();
 		
-		var auxSegment = new TileSegment(roadSet, [for (i in 0...roadSet.bitmapData.height) i]);
-		auxSegment.x = 500;
-		auxSegment.y = 500;
+		
+		var auxSegment = new TileSegment(roadSet, [for (i in 0...Math.floor(roadSet.bitmapData.height)) i]);
+		auxSegment.x = width/2 - roadSet.bitmapData.width/2;
+		auxSegment.y = height - roadSet.bitmapData.height ;
 		segmentArray.push(auxSegment);
 		addTile(auxSegment);
 		
@@ -49,6 +50,7 @@ class TileRoad extends Tilemap
 	
 	public function addSegment(e:MouseEvent):Void 
 	{
+		return;
 		trace ("added segment");
 		var auxSegment = new TileSegment(roadSet, [for (i in 0...roadSet.bitmapData.height) i]);
 		segmentArray.push(auxSegment);

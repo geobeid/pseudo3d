@@ -34,9 +34,10 @@ class TileSegment extends TileContainer
 		for (i in lines) 
 		{
 			
-			var scale :Float = 1 - .5 * (1 - scan / tileset.bitmapData.width);
-			var posX : Float = (1 - scan / tileset.bitmapData.width) * (tileset.bitmapData.width / 4);
-			
+			var scale :Float = ((scan + y - Main.myPerspective.y) / (Main.stageHeight -Main.myPerspective.y));
+			//var posX : Float = (1-scan / tileset.bitmapData.height) * (tileset.bitmapData.width / 4);
+			var tan = Main.myPerspective.x / (Main.stageHeight - Main.myPerspective.y) ;
+			var posX : Float = tan * (Main.stageHeight - y -scan) ;
 			
 			var t:Tile = new Tile(i, posX, scan, scale);
 			//t.tileset = tileset;
