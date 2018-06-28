@@ -23,7 +23,8 @@
 	
 	
 	<!-- optimize output. Let's try to make this work. -->
-	<haxeflag name="-dce full" /> <!-- dce FULL: broken until a new Actuate comes along :( -->
+	<haxeflag name="-dce full" /> <!-- dce FULL: it didn't break at Actuate. it breaks at DisplayObject. :( -->
+	<haxeflag name="--macro keep('openfl.display.DisplayObject')" /> <!-- this stops tweens from dying!. We should be able to go only for Sprite. but better safe than sorry.-->
 	
 	<!--<haxedef name="canvas" /> <!-- canvas all the way -->
 	

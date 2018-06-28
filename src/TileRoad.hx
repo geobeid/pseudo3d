@@ -21,6 +21,9 @@ class TileRoad extends Tilemap
 	{
 		super(width, height);
 		
+		this.tileColorTransformEnabled = false;
+		this.tileAlphaEnabled = false;
+		
 		roadSet = new Tileset(Assets.getBitmapData("img/segment.png"));
 		
 		for (i in 0...roadSet.bitmapData.height) 
