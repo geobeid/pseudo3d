@@ -1,6 +1,7 @@
 package;
 
 import openfl.events.Event;
+import openfl.events.KeyboardEvent;
 import openfl.Assets;
 import openfl.display.Sprite;
 import openfl.Lib;
@@ -16,10 +17,12 @@ class Main extends Sprite {
 	static public var myPerspective:Sprite = new Sprite();
 	static public var stageWidth:Int=0;
 	static public var stageHeight:Int=0;
+	static public var current:Main;
 	
+	private var tileRoad:TileRoad; 
 	public function new() {
 		super();
-		
+		current = this;
 		stageWidth = stage.stageWidth;
 		stageHeight = stage.stageHeight;
 		
@@ -39,7 +42,7 @@ class Main extends Sprite {
 		
 		addChild(myPerspective);
 		
-		var tileRoad:TileRoad = new TileRoad(stage.stageWidth, stage.stageHeight);
+		tileRoad = new TileRoad(stage.stageWidth, stage.stageHeight);
 		tileRoad.x = tileRoad.y = 0;
 		addChild(tileRoad);
 		stage.addEventListener(MouseEvent.CLICK, tileRoad.addSegment);
@@ -48,11 +51,15 @@ class Main extends Sprite {
 		myPerf.scaleX = myPerf.scaleY = 4;
 		addChild(myPerf);
 		
-		this.addEventListener(MouseEvent.MOUSE_DOWN, onMouseMove);
+		stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 	}
 	
-	function onMouseMove(E:MouseEvent){
-		myPerspective.y = E.stageY;
-		myPerspective.x = E.stageX;
+	
+	function onKeyDown(E:KeyboardEvent){
+		if(E.keyCode==39){
+			TileRoad.currentX += 5;
+		}else if(E.keyCode==37){
+			TileRoad.currentX -= 5;
+		}
 	}
 }

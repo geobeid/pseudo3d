@@ -11,12 +11,16 @@ import openfl.display.Tileset;
 class TileSegment extends TileContainer
 {
 	var lines:Array<Int>;
+	var BMDwidth:Int = 0;
+	
 	public function new(tileset:Tileset,lines:Array<Int>) 
 	{
 		super();
 
 		this.tileset = tileset;
 		this.lines = lines;
+		
+		BMDwidth = tileset.bitmapData.width;
 		
 		redraw();
 	}
@@ -35,9 +39,8 @@ class TileSegment extends TileContainer
 		{
 			
 			var scale :Float = ((scan + y - Main.myPerspective.y) / (Main.stageHeight -Main.myPerspective.y));
-			//var posX : Float = (1-scan / tileset.bitmapData.height) * (tileset.bitmapData.width / 4);
-			var tan = Main.myPerspective.x / (Main.stageHeight - Main.myPerspective.y) ;
-			var posX : Float = tan * (Main.stageHeight - y -scan) ;
+			var tan = (Main.myPerspective.x - x + BMDwidth/2) / (Main.stageHeight - Main.myPerspective.y) ;
+			var posX : Float = tan * (Main.stageHeight - (y + scan)) - BMDwidth/2;
 			
 			var t:Tile = new Tile(i, posX, scan, scale);
 			//t.tileset = tileset;
