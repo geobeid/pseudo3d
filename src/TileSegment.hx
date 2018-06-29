@@ -12,6 +12,8 @@ class TileSegment extends TileContainer
 {
 	var lines:Array<Int>;
 	var BMDwidth:Int = 0;
+	var myDelta:Int = 0;
+	
 	
 	public function new(tileset:Tileset,lines:Array<Int>) 
 	{
@@ -37,16 +39,23 @@ class TileSegment extends TileContainer
 		
 		for (i in lines) 
 		{
-			
+			//NO SE PORQUE -200000 pero funciona
+			var Z = (Main.myPerspective.z) / ((lines.length - i) - Main.stageHeight / 2 );
+	
 			var scale :Float = ((scan + y - Main.myPerspective.y) / (Main.stageHeight -Main.myPerspective.y));
+			//var scale :Float = ((scan + y - Main.myPerspective.y) / (Main.stageHeight -Main.myPerspective.y));
 			var tan = (Main.myPerspective.x - x + BMDwidth/2) / (Main.stageHeight - Main.myPerspective.y) ;
-			var posX : Float = tan * (Main.stageHeight - (y + scan)) - BMDwidth/2;
+			var posX : Float = tan * (Main.stageHeight - (y + scan)) - BMDwidth / 2;
+			 
 			
-			var t:Tile = new Tile(i, posX, scan, scale);
+			var myID:Int = Math.floor(Z + myDelta) % tileset.bitmapData.height;
+			var t:Tile = new Tile(myID, posX, scan, scale);
 			//t.tileset = tileset;
 			addTile(t);
 			
 			scan++;
 		}
+		myDelta+=10;
+
 	}
 }
