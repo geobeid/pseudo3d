@@ -8,7 +8,7 @@ import openfl.display.Tileset;
  * ...
  * @author Killabunnies
  */
-class TileSegment extends TileContainer
+class GroundSegment extends TileContainer
 {
 	var lines:Array<Int>;
 	var BMDwidth:Int = 0;
@@ -40,13 +40,12 @@ class TileSegment extends TileContainer
 		for (i in lines) 
 		{
 			if (y + i > Main.myHorizon){
-				//NO SE PORQUE -200000 pero funciona
 				var Z = (Main.myPerspective.z) / ((lines.length - i) - Main.stageHeight / 2 );
 		
-				var scale :Float = ((scan + y - Main.myPerspective.y) / (Main.stageHeight -Main.myPerspective.y));
+				var scale :Float = 1;
 				//var scale :Float = ((scan + y - Main.myPerspective.y) / (Main.stageHeight -Main.myPerspective.y));
 				var tan = (Main.myPerspective.x - x + BMDwidth/2) / (Main.stageHeight - Main.myPerspective.y) ;
-				var posX : Float = tan * (Main.stageHeight - (y + scan)) - BMDwidth / 2;
+				var posX : Float = 0;
 				 
 				
 				var myID:Int = Math.floor(Z + myDelta) % tileset.bitmapData.height;
