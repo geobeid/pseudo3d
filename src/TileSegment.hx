@@ -13,6 +13,8 @@ class TileSegment extends TileContainer
 	var lines:Array<Int>;
 	var BMDwidth:Int = 0;
 	var myDelta:Float = 0;
+	public var X:Float = 0;
+	public var Y:Float = 0;
 	
 	
 	public function new(tileset:Tileset,lines:Array<Int>) 
@@ -47,8 +49,8 @@ class TileSegment extends TileContainer
 				//var scale :Float = ((scan + y - Main.myPerspective.y) / (Main.stageHeight -Main.myPerspective.y));
 				var tan = (Main.myPerspective.x - x + BMDwidth/2) / (Main.stageHeight - Main.myPerspective.y) ;
 				var posX : Float = tan * (Main.stageHeight - (y + scan)) - BMDwidth / 2;
-				 
-				
+				posX += Math.sin(i/180)*100;
+
 				var myID:Int = Math.floor(Z + myDelta) % tileset.bitmapData.height;
 				var t:Tile = new Tile(myID, posX, scan, scale);
 				//t.tileset = tileset;

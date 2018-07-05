@@ -18,13 +18,13 @@ import utils.Performance;
 class Main extends Sprite {
 
 	static public var myPerspective:Point3D = new Point3D();
-	static public var myHorizon:Float = 600;
+	static public var myHorizon:Float = 300;
 	static public var stageWidth:Int=0;
 	static public var stageHeight:Int=0;
 	static public var current:Main;
 	
 	private var tileRoad:TileRoad; 
-	private var myGround:Ground; 
+	private var myGround:TileRoad; 
 	private var mySky:Sprite = new Sprite();
 	
 	public function new() {
@@ -39,20 +39,19 @@ class Main extends Sprite {
 		addChild(mySky);
 		
 		myPerspective.x = stage.stageWidth / 2;
-		myPerspective.y = stage.stageHeight / 2;
-		myPerspective.z = -300000;
+		myPerspective.y = (stage.stageHeight/ 5) *2;
+		myPerspective.z = -30000;		
 		
-		
-		myGround = new Ground(stage.stageWidth, stage.stageHeight);
-		myGround.x = myGround.y = 0;
+		myGround = new TileRoad(stage.stageWidth, stage.stageHeight,Assets.getBitmapData("img/grass.png"),3);
+		myGround.x = 0;
+		myGround.y = 0;
 		addChild(myGround);
 		
-		tileRoad = new TileRoad(stage.stageWidth, stage.stageHeight);
+		tileRoad = new TileRoad(stage.stageWidth, stage.stageHeight, Assets.getBitmapData("img/segment.png"));
 		tileRoad.x = tileRoad.y = 0;
 		addChild(tileRoad);
 				
 		var myPerf:Performance = new Performance();
-		myPerf.scaleX = myPerf.scaleY = 4;
 		addChild(myPerf);
 		
 		stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
