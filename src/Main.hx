@@ -26,6 +26,7 @@ class Main extends Sprite {
 	private var tileRoad:TileRoad; 
 	private var myGround:TileRoad; 
 	private var mySky:Sprite = new Sprite();
+	private var myCar:Sprite = new Sprite();
 	
 	public function new() {
 		super();
@@ -37,6 +38,10 @@ class Main extends Sprite {
         var myBitmap:Bitmap = new Bitmap (myBitmapData);
 		mySky.addChild(myBitmap);
 		addChild(mySky);
+		
+		var myBitmapData2:BitmapData = Assets.getBitmapData("img/car.png");
+		var myBitmap2:Bitmap = new Bitmap (myBitmapData2);
+		myCar.addChild(myBitmap2);
 		
 		myPerspective.x = stage.stageWidth / 2;
 		myPerspective.y = (stage.stageHeight/ 5) *2;
@@ -53,6 +58,10 @@ class Main extends Sprite {
 				
 		var myPerf:Performance = new Performance();
 		addChild(myPerf);
+		myCar.scaleX = myCar.scaleY = .4;
+		myCar.x = stage.stageWidth / 2 - myCar.width / 2;
+		myCar.y = stage.stageHeight - myCar.height - 10;
+		addChild(myCar);
 		
 		stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 		addEventListener(Event.ENTER_FRAME, update);

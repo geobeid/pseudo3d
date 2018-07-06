@@ -53,7 +53,6 @@ class TileRoad extends Tilemap
 			//auxSegment.X = 0;
 			segmentArray.push(auxSegment);
 			addTile(auxSegment);
-			auxSegment.alpha = .5 * lane+.5;
 		
 		}
 		

@@ -9,7 +9,7 @@
 	<app main="Main" file="Pseudo3D" path="bin" />
 	
 	<window background="#333333" fps="60" />
-	<window width="1920" height="1080" unless="mobile" />
+	<window width="800" height="600" resizable="false" />
 	<window orientation="landscape" vsync="false" antialiasing="0" if="cpp" />
 	
 	<!-- classpath, haxe libs -->
